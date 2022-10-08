@@ -25,8 +25,8 @@ const xcode = require('xcode'),
     fs = require('fs'),
     uuid = require('uuid'),
     parser = require('xml2json'),
-    projectPath = XCODE_PATH + XCODE_PROJECT + '/project.pbxproj',
-    outputProjectPath = XCODE_PATH + XCODE_PROJECT + '/project.pbxproj',
+    projectPath = XCODE_PATH + '/project.pbxproj',
+    outputProjectPath = XCODE_PATH + '/project.pbxproj',
     myProj = xcode.project(projectPath);
 
 myProj.parse(function (err) {
@@ -204,7 +204,7 @@ function getMainTargetFromTestPlan(testPlanJson, skippedShardTests){
 
 // Create and add test plans to project
 function addTestPlans(main_group_uuid, shards){
-    let schemePath = XCODE_PATH + XCODE_PROJECT + '/xcshareddata/xcschemes/' + SCHEME + '.xcscheme';
+    let schemePath = XCODE_PATH + '/xcshareddata/xcschemes/' + SCHEME + '.xcscheme';
     fs.readFile( schemePath, function(err, schemeData) {
         if (err) {
             console.error('Error reading scheme:',err);
